@@ -12,12 +12,12 @@ function getRandomNumber(max) {
 }
 
 function getMoveComputer() {
-    const randomNum = getRandomNumber(10);
+    const randomNum = getRandomNumber(9);
     console.log({randomNum});       
     
-    if(randomNum < 3 ) {
+    if(randomNum < 3) {
         moveComputer = 'piedra';    
-    } else if(randomNum >= 3) {
+    } else if(randomNum === 3 || randomNum < 6) {
         moveComputer = 'papel';
     } else {
         moveComputer = 'tijera';
@@ -26,21 +26,32 @@ function getMoveComputer() {
 
 function compareMovements() {
     const userValue = movements.value;
+    console.log(userValue); 
+    console.log(moveComputer);   
+
     if(userValue === moveComputer){
         messageButton.innerHTML = 'Empate';
-    }
-}
+    } else if( userValue === 'stone' && moveComputer === 'papel') {
+        messageButton.innerHTML = '¡Has perdido!';
+    } else if( userValue === 'stone' && moveComputer === 'tijera') {
+        messageButton.innerHTML = '¡Has ganado!';
+    } else if( userValue === 'paper' && moveComputer === 'piedra') {
+        messageButton.innerHTML = '¡Has ganado!';
+    } else if( userValue === 'paper' && moveComputer === 'tijera') {
+        messageButton.innerHTML = '¡Has perdido!';
+    } else if( userValue === 'scissors' && moveComputer === 'piedra') {
+        messageButton.innerHTML = '¡Has perdido!';
+    } else if( userValue === 'scissors' && moveComputer === 'papel') {
+        messageButton.innerHTML = '¡Has ganado!'; 
+    }      
+}   
    
    
 function handleClickPlay(event) {   
     event.preventDefault();
     getRandomNumber();    
     getMoveComputer();
-    compareMovements();
-    
+    compareMovements();    
 }
 
-ComputerBtn.addEventListener('click', handleClickPlay);  
-
-
-
+ComputerBtn.addEventListener('click', handleClickPlay);
