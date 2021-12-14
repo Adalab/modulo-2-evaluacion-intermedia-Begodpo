@@ -3,6 +3,9 @@
 const movements = document.querySelector('.js-moveSelected');
 const ComputerBtn = document.querySelector('.js-computerButton');
 const messageButton = document.querySelector('.js-messageButton');
+const playerAcc = document.querySelector('.js-playerAccount');
+const computerAcc = document.querySelector('.js-computerAccount');
+
 let moveComputer = ''; 
 
 
@@ -44,14 +47,19 @@ function compareMovements() {
     } else if( userValue === 'scissors' && moveComputer === 'papel') {
         messageButton.innerHTML = '¡Has ganado!'; 
     }      
-}   
+}  
+
+function updateCounter() {
+
+}
    
    
 function handleClickPlay(event) {   
     event.preventDefault();
     getRandomNumber();    
     getMoveComputer();
-    compareMovements();    
+    compareMovements();
+    updateCounter();    
 }
 
 ComputerBtn.addEventListener('click', handleClickPlay);
