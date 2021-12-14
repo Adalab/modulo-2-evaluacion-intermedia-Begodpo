@@ -11,19 +11,17 @@
     <h1>Juego Piedra, Papel y Tijera</h1>
     <h2>Introduce aquí tu jugada</h2>
     <form action="" class="controls">
-      <select name="move_selected" id="move_selected">
+      <select name="move_selected" id="move_selected" class="js-moveSelected">
         <option value="move">Seleccione su jugada</option>
         <option value="stone">Piedra</option>
         <option value="paper">Papel</option>
         <option value="scissors">Tijera</option>
-        <option value="result"></option>
-        <option value="points"></option>
       </select>
-      <input type="submit" value="Jugar" />
-      <input type="submit" value="Vamos a jugar!" />
+      <input type="submit" value="Jugar" class="js-computerButton" />
     </form>
-    <p>Jugador:</p>
-    <p>Computadora:</p>
+    <button>Vamos a jugar!</button>
+    <p>Jugador: 0</p>
+    <p>Computadora: 0</p>
 
     <script type="text/javascript" src="./js/main.js"></script>
   </body>
