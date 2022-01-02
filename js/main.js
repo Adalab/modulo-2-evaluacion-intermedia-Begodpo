@@ -1,65 +1,62 @@
-'use strict';
+"use strict";
 
-const movements = document.querySelector('.js-moveSelected');
-const ComputerBtn = document.querySelector('.js-computerButton');
-const messageButton = document.querySelector('.js-messageButton');
-const playerAcc = document.querySelector('.js-playerAccount');
-const computerAcc = document.querySelector('.js-computerAccount');
+const movements = document.querySelector(".js-moveSelected");
+const ComputerBtn = document.querySelector(".js-computerButton");
+const messageButton = document.querySelector(".js-messageButton");
+const playerAcc = document.querySelector(".js-playerAccount");
+const computerAcc = document.querySelector(".js-computerAccount");
 
-let moveComputer = ''; 
-
-
+let moveComputer = "";
 
 function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
+  return Math.ceil(Math.random() * max);
 }
+
+// Mostar el resultado: texto y puntuación
+
+// Generar la jugada aleatoria
 
 function getMoveComputer() {
-    const randomNum = getRandomNumber(9);
-    console.log({randomNum});       
-    
-    if(randomNum < 3) {
-        moveComputer = 'piedra';    
-    } else if(randomNum === 3 || randomNum < 6) {
-        moveComputer = 'papel';
-    } else {
-        moveComputer = 'tijera';
-    }
-}      
+  let randomNum = getRandomNumber(9);
+  if (randomNum < 3) {
+    moveComputer = "piedra";
+  } else if (randomNum === 3 || randomNum < 6) {
+    moveComputer = "papel";
+  } else {
+    moveComputer = "tijera";
+  }
+  return moveComputer;
+}
+
+// Comparar jugadas y ver quién ha ganado
 
 function compareMovements() {
-    const userValue = movements.value;
-    console.log(userValue); 
-    console.log(moveComputer);   
+  let moveComputer = getMoveComputer();
+  let userValue = movements.value;
+  console.log(moveComputer);
 
-    if(userValue === moveComputer){
-        messageButton.innerHTML = 'Empate';
-    } else if( userValue === 'stone' && moveComputer === 'papel') {
-        messageButton.innerHTML = '¡Has perdido!';
-    } else if( userValue === 'stone' && moveComputer === 'tijera') {
-        messageButton.innerHTML = '¡Has ganado!';
-    } else if( userValue === 'paper' && moveComputer === 'piedra') {
-        messageButton.innerHTML = '¡Has ganado!';
-    } else if( userValue === 'paper' && moveComputer === 'tijera') {
-        messageButton.innerHTML = '¡Has perdido!';
-    } else if( userValue === 'scissors' && moveComputer === 'piedra') {
-        messageButton.innerHTML = '¡Has perdido!';
-    } else if( userValue === 'scissors' && moveComputer === 'papel') {
-        messageButton.innerHTML = '¡Has ganado!'; 
-    }      
-}  
-
-function updateCounter() {
-
-}
-   
-   
-function handleClickPlay(event) {   
-    event.preventDefault();
-    getRandomNumber();    
-    getMoveComputer();
-    compareMovements();
-    updateCounter();    
+  if (userValue === moveComputer) {
+    messageButton.innerHTML = "Empate";
+  } else if (userValue === "piedra" && moveComputer === "papel") {
+    messageButton.innerHTML = "¡Has perdido!";
+  } else if (userValue === "piedra" && moveComputer === "tijera") {
+    messageButton.innerHTML = "¡Has ganado!";
+  } else if (userValue === "papel" && moveComputer === "piedra") {
+    messageButton.innerHTML = "¡Has ganado!";
+  } else if (userValue === "papel" && moveComputer === "tijera") {
+    messageButton.innerHTML = "¡Has perdido!";
+  } else if (userValue === "tijera" && moveComputer === "piedra") {
+    messageButton.innerHTML = "¡Has perdido!";
+  } else if (userValue === "tijera" && moveComputer === "papel") {
+    messageButton.innerHTML = "¡Has ganado!";
+  }
 }
 
-ComputerBtn.addEventListener('click', handleClickPlay);
+function updateCounter() {}
+
+function handleClickPlay(event) {
+  event.preventDefault();
+  compareMovements();
+}
+
+ComputerBtn.addEventListener("click", handleClickPlay);
