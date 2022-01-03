@@ -5,11 +5,13 @@ const ComputerBtn = document.querySelector(".js-computerButton");
 const messageButton = document.querySelector(".js-messageButton");
 const playerAcc = document.querySelector(".js-playerAccount");
 const computerAcc = document.querySelector(".js-computerAccount");
+const reset = document.querySelector(".js-reset");
 
 // Variables globales
 let moveComputer = "";
 let userScore = 0;
 let computerScore = 0;
+let moves = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -59,13 +61,30 @@ function compareMovements() {
     messageButton.innerHTML = "¡Has ganado!";
     userScore++;
   }
+
   playerAcc.innerHTML = `Jugador: <span>${userScore}</span>`;
   computerAcc.innerHTML = `Computadora: <span>${computerScore}</span>`;
+
+  moves++;
+  console.log(moves);
+}
+
+function gameOver() {
+  if (moves === 10) {
+    if (userScore > computerScore) {
+      messageButton.innerHTML = "¡Has ganado la partida!";
+    } else if (userScore > computerScore) {
+      messageButton.innerHTML = "¡Has perdido la partida!";
+      messageButton.innerHTML = "¡Empate!";
+    }
+    reset.classList.remove("hidden");
+  }
 }
 
 function handleClickPlay(event) {
   event.preventDefault();
   compareMovements();
+  gameOver();
 }
 
 ComputerBtn.addEventListener("click", handleClickPlay);
