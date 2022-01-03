@@ -6,7 +6,10 @@ const messageButton = document.querySelector(".js-messageButton");
 const playerAcc = document.querySelector(".js-playerAccount");
 const computerAcc = document.querySelector(".js-computerAccount");
 
+// Variables globales
 let moveComputer = "";
+let userScore = 0;
+let computerScore = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -39,20 +42,26 @@ function compareMovements() {
     messageButton.innerHTML = "Empate";
   } else if (userValue === "piedra" && moveComputer === "papel") {
     messageButton.innerHTML = "¡Has perdido!";
+    computerScore++;
   } else if (userValue === "piedra" && moveComputer === "tijera") {
     messageButton.innerHTML = "¡Has ganado!";
+    userScore++;
   } else if (userValue === "papel" && moveComputer === "piedra") {
     messageButton.innerHTML = "¡Has ganado!";
+    userScore++;
   } else if (userValue === "papel" && moveComputer === "tijera") {
     messageButton.innerHTML = "¡Has perdido!";
+    computerScore++;
   } else if (userValue === "tijera" && moveComputer === "piedra") {
     messageButton.innerHTML = "¡Has perdido!";
+    computerScore++;
   } else if (userValue === "tijera" && moveComputer === "papel") {
     messageButton.innerHTML = "¡Has ganado!";
+    userScore++;
   }
+  playerAcc.innerHTML = `Jugador: <span>${userScore}</span>`;
+  computerAcc.innerHTML = `Computadora: <span>${computerScore}</span>`;
 }
-
-function updateCounter() {}
 
 function handleClickPlay(event) {
   event.preventDefault();
