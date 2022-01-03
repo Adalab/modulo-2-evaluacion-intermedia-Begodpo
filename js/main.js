@@ -37,7 +37,6 @@ function getMoveComputer() {
 function compareMovements() {
   let moveComputer = getMoveComputer();
   let userValue = movements.value;
-  console.log(moveComputer);
 
   if (userValue === moveComputer) {
     messageButton.innerHTML = "Empate";
