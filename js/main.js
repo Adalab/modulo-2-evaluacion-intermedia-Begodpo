@@ -1,11 +1,12 @@
 "use strict";
 
 const movements = document.querySelector(".js-moveSelected");
-const ComputerBtn = document.querySelector(".js-computerButton");
+const computerBtn = document.querySelector(".js-computerButton");
 const messageButton = document.querySelector(".js-messageButton");
 const playerAcc = document.querySelector(".js-playerAccount");
 const computerAcc = document.querySelector(".js-computerAccount");
-const reset = document.querySelector(".js-reset");
+const resetBtn = document.querySelector(".js-reset");
+const computerText = document.querySelector(".js-computerText");
 
 // Variables globales
 let moveComputer = "";
@@ -17,9 +18,7 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-// Mostar el resultado: texto y puntuación
-
-// Generar la jugada aleatoria
+// Jugada aleatoria
 
 function getMoveComputer() {
   let randomNum = getRandomNumber(9);
@@ -33,7 +32,7 @@ function getMoveComputer() {
   return moveComputer;
 }
 
-// Comparar jugadas y ver quién ha ganado
+// Comparar jugadas
 
 function compareMovements() {
   let moveComputer = getMoveComputer();
@@ -66,8 +65,9 @@ function compareMovements() {
   computerAcc.innerHTML = `Computadora: <span>${computerScore}</span>`;
 
   moves++;
-  console.log(moves);
+  computerText.innerHTML = `La computadora ha elegido: ${moveComputer}`;
 }
+// Fin de la partida
 
 function gameOver() {
   if (moves === 10) {
@@ -77,7 +77,8 @@ function gameOver() {
       messageButton.innerHTML = "¡Has perdido la partida!";
       messageButton.innerHTML = "¡Empate!";
     }
-    reset.classList.remove("hidden");
+    resetBtn.classList.remove("hidden");
+    computerBtn.classList.add("hidden");
   }
 }
 
@@ -87,4 +88,18 @@ function handleClickPlay(event) {
   gameOver();
 }
 
-ComputerBtn.addEventListener("click", handleClickPlay);
+function handleClickReset(event) {
+  event.preventDefault();
+  resetBtn.classList.add("hidden");
+  computerBtn.classList.remove("hidden");
+  userScore = 0;
+  computerScore = 0;
+  moves = 0;
+  playerAcc.innerHTML = `Jugador: <span>0</span>`;
+  computerAcc.innerHTML = `Computadora: <span>0</span>`;
+  messageButton.innerHTML = "Vamos a jugar!";
+  document.getElementById("move_selected").value = "move";
+}
+
+computerBtn.addEventListener("click", handleClickPlay);
+resetBtn.addEventListener("click", handleClickReset);
