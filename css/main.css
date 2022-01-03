@@ -1,3 +1,133 @@
+body {
+    
+}
 .hidden {
-  display: none;
+  display: none;s
+}
+.mainContainer {   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-family: 'Ubuntu', sans-serif;  
+  border: rgb(149, 235, 188) 3px solid;
+  width: 100%;
+}
+.title {
+  font-size: 22px; 
+  font-weight: 700;
+  color: rgb(27, 136, 76);
+  margin-top: 20px;  
+}
+.moveTitle {
+    font-size: 20px;
+    font-weight: 500;
+}
+.form {
+  display: flex;
+  
+}
+.form__select {
+    width: 200px;
+    border-color: rgb(27, 136, 76);
+    padding: 3px;
+    border-radius: 5px;
+}
+.form__input {
+    margin-left: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(149, 235, 188);
+    padding: 7px;
+}
+.computerText {
+    font-weight: 400;
+}
+.messageButton {
+    border-radius: 5px;
+    background-color: rgb(149, 235, 188);
+    margin-top: 10px;  
+    border-style: none;
+    padding: 7px;
+}
+.playerAcc {
+    font-size: 14px;
+    margin-top: 25px;
+}
+.computerAcc {
+    font-size: 14px;
+    margin-top: 10px; 
+}
+.resetButton {
+    border-radius: 5px;
+    background-color: rgb(149, 235, 188);
+    border-style: none;
+    padding: 7px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .mainContainer {
+        width: 90%;
+        margin-left: 40px;
+    }
+    .title {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+    .moveTitle {
+        font-size: 22px;
+    }
+    .form__select {
+        width: 250px;
+    }
+    .form__input {
+        width: 70px; 
+    }
+    .computerText {
+        font-size: 18px;
+    }
+    .messageButton {
+        width: 150px;
+    }
+    .playerAcc {
+        font-size: 16px;
+    }
+    .computerAcc {
+        font-size: 16px;
+    }
+}
+@media (min-width: 1024px) {
+    .mainContainer {
+        width: 60%;
+        margin-left: 150px;
+        padding: 100px 0px 100px 0px;
+    }
+    .title {
+        font-size: 35px;
+        margin-top: 30px;
+    }
+    .moveTitle {
+        font-size: 22px;
+    }
+    .form__select {
+        width: 300px;
+    }
+    .form__input {
+        width: 100px;
+        margin-left: 20px; 
+    }
+    .computerText {
+        font-size: 18px;
+    }
+    .messageButton {
+        width: 150px;
+    }
+    .playerAcc {
+        font-size: 16px;
+    }
+    .computerAcc {
+        font-size: 16px;
+    }
 }
