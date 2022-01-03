@@ -33,13 +33,16 @@ body {
     border-color: rgb(27, 136, 76);
     padding: 3px;
     border-radius: 5px;
-}
+    cursor: pointer;
+    text-align: center;
+}    
 .form__input {
     margin-left: 10px;
     border-radius: 5px;
     border-style: none;
     background-color: rgb(149, 235, 188);
     padding: 7px;
+    cursor: pointer;
 }
 .computerText {
     font-weight: 400;
@@ -50,6 +53,8 @@ body {
     margin-top: 10px;  
     border-style: none;
     padding: 7px;
+    cursor: pointer;
+    font-weight: 700;
 }
 .playerAcc {
     font-size: 14px;
@@ -65,6 +70,7 @@ body {
     border-style: none;
     padding: 7px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -96,6 +102,9 @@ body {
     }
     .computerAcc {
         font-size: 16px;
+    }
+    .resetButton {
+        padding: 10px;
     }
 }
 @media (min-width: 1024px) {
