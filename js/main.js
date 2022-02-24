@@ -72,8 +72,9 @@ function gameOver() {
   if (moves === 10) {
     if (userScore > computerScore) {
       messageButton.innerHTML = "¡Has ganado la partida!";
-    } else if (userScore > computerScore) {
+    } else if (userScore < computerScore) {
       messageButton.innerHTML = "¡Has perdido la partida!";
+    } else {
       messageButton.innerHTML = "¡Empate!";
     }
     resetBtn.classList.remove("hidden");
